@@ -4,7 +4,7 @@
     "slug": "roll-quest",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/d20.png",
+    "icon": "./assets/d20_1024.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/d20.png",
