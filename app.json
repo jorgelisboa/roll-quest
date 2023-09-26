@@ -23,7 +23,8 @@
         "foregroundImage": "./assets/dice_icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.krhuhun.rollquest"
+      "package": "com.krhuhun.rollquest",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
