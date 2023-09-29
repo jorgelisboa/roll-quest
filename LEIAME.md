@@ -7,6 +7,7 @@ Ao jogar RPG são necessários diversos dados, mas estes kits podem ser caros de
 | 1 | R$27,90 - R$35,50 |
 | 2 | R$55,80 - R$71,00 |
 | 5 | R$135,50, R$177,50 |
+
 Com isso, o dado no telefone (gratuito) é a melhor opção para grupos de RPG, e caso você queira um tema diferente, R$10,00 é bem menos do que os dados físicos.
 ## Notas de lançamento
 ### V1.0.0
