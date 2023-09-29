@@ -8,7 +8,7 @@ When playing RPGs, various dice are required, but these kits can be too expensiv
 | 2 | $11.18 - $14.21 |
 | 5 | $27.18, $35.56 |
 
-With that in mind, using dice on your phone (for free) is the best option for RPG groups, and if you want a different theme, $10.00 is much less than physical dice.
+With that in mind, using dice on your phone (for free) is the best option for RPG groups, and if you want a different theme, $4.99 is much less than physical dice.
 
 ## Release Notes
 ### V1.0.0
