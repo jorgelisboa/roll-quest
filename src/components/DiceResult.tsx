@@ -1,8 +1,9 @@
 import { StyleSheet, View, Animated } from "react-native";
-import { Text } from "react-native-paper";
+import { Text, useTheme } from "react-native-paper";
 import { Height, Width } from "../constants/sizes";
 import { Roll } from "../../App";
 import { useEffect, useState } from "react";
+import ColorSwitch from "./ColorSwitch";
 
 export interface Props {
   values: Roll;
@@ -23,17 +24,19 @@ const DiceResult = (props: Props) => {
       useNativeDriver: false,
     }).start();
   };
+  const { colors } = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.primary }]}>
+      <ColorSwitch />
       <Animated.View style={{ opacity: fadeAnim }}>
         {props.values ? (
-          <Text style={styles.result}>{props.values.results}</Text>
+          <Text style={[styles.result, { color: colors.secondary }]}>{props.values.results}</Text>
         ) : (
-          <Text variant="displayMedium">Role um dado</Text>
+          <Text style={{ color: colors.secondary }} variant="displayMedium">Role um dado</Text>
         )}
       </Animated.View>
-      <Text variant="displaySmall">
+      <Text style={{ color: colors.secondary }} variant="displaySmall">
         {props.values ? "1d" + props.values.sides : ""}
       </Text>
     </View>
@@ -46,7 +49,6 @@ const styles = StyleSheet.create({
   container: {
     height: Height * 0.7,
     width: Width,
-    backgroundColor: "#fff",
     borderBottomWidth: 1,
     // Align on midlle
     flex: 1,

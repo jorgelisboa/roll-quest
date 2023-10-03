@@ -5,9 +5,10 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Text } from "react-native-paper";
+import { Text, useTheme } from "react-native-paper";
 import React from "react";
-import { Height, Width } from "../constants/sizes";
+import { Height, } from "../constants/sizes";
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import BlackD4 from "../../assets/dices_icons/black/d4.svg";
 import BlackD6 from "../../assets/dices_icons/black/d6.svg";
 import BlackD8 from "../../assets/dices_icons/black/d8.svg";
@@ -21,6 +22,8 @@ export interface Props {
 }
 
 const DiceButton = (props: Props) => {
+
+  const { colors } = useTheme();
 
   const DiceIcon = () => {
     // conditional render for dice icon based on props.text
@@ -44,9 +47,9 @@ const DiceButton = (props: Props) => {
   }
   
   return (
-    <TouchableOpacity style={styles.box} onPress={props.action}>
+    <TouchableOpacity style={[styles.box, { borderColor: colors.secondary }]} onPress={props.action}>
       <DiceIcon />
-      <Text variant="bodySmall">{props.text}</Text>
+      <Text style={{ color: colors.secondary }} variant="bodySmall">{props.text}</Text>
     </TouchableOpacity>
   );
 };
