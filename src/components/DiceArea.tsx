@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { Height, Width } from "../constants/sizes";
 
 export interface Props {
@@ -6,7 +6,13 @@ export interface Props {
 }
 
 const DiceArea = (props: Props) => {
-  return <View style={styles.container}>{props.children}</View>;
+  return (
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.innerContainer}>
+        {props.children}
+      </ScrollView>
+    </View>
+  );
 };
 
 export default DiceArea;
@@ -16,12 +22,14 @@ const styles = StyleSheet.create({
     width: Width,
     height: Height * 0.3,
     paddingHorizontal: 8,
-    paddingTop: Height * 0.04,
+    paddingVertical: Height * 0.03,
+  },
+  innerContainer: {
     backgroundColor: "#fff",
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-  },
+  }
 });

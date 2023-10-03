@@ -6,6 +6,7 @@ import DiceArea from "./src/components/DiceArea";
 import { useEffect, useState } from "react";
 import { Audio } from "expo-av";
 import * as Haptics from "expo-haptics";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export type Roll = {
   sides: number;
@@ -22,7 +23,6 @@ export default function App() {
     const { sound } = await Audio.Sound.createAsync(
       require("./assets/dice_roll.mp3")
     );
-    console.log(sound);
     setSound(sound);
 
     await sound.playAsync();

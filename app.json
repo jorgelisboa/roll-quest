@@ -26,9 +26,6 @@
       "package": "com.krhuhun.rollquest",
       "versionCode": 1
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
     "extra": {
       "eas": {
         "projectId": "9ae8c628-4270-470c-ab68-b9888ee9ef40"
