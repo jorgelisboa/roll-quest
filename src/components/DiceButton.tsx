@@ -15,10 +15,18 @@ import BlackD8 from "../../assets/dices_icons/black/d8.svg";
 import BlackD10 from "../../assets/dices_icons/black/d10.svg";
 import BlackD12 from "../../assets/dices_icons/black/d12.svg";
 import BlackD20 from "../../assets/dices_icons/black/d20.svg";
+import WhiteD4 from "../../assets/dices_icons/white/d4.svg";
+import WhiteD6 from "../../assets/dices_icons/white/d6.svg";
+import WhiteD8 from "../../assets/dices_icons/white/d8.svg";
+import WhiteD10 from "../../assets/dices_icons/white/d10.svg";
+import WhiteD12 from "../../assets/dices_icons/white/d12.svg";
+import WhiteD20 from "../../assets/dices_icons/white/d20.svg";
 
 export interface Props {
   text: string;
   action: VoidFunction;
+  currentTheme: any;
+  setCurrentTheme: any;
 }
 
 const DiceButton = (props: Props) => {
@@ -27,22 +35,42 @@ const DiceButton = (props: Props) => {
 
   const DiceIcon = () => {
     // conditional render for dice icon based on props.text
-    switch (props.text) {
-      case '1d4':
-        return <BlackD4 style={styles.icon} />;
-      case '1d6':
-        return <BlackD6 style={styles.icon} />;
-      case '1d8':
-        return <BlackD8 style={styles.icon} />;
-      case '1d10':
-        return <BlackD10 style={styles.icon} />;
-      case '1d12':
-        return <BlackD12 style={styles.icon} />;
-      case '1d20':
-        return <BlackD20 style={styles.icon} />;
-    
-      default:
-        return <BlackD20 style={styles.icon} />;
+    if (props.currentTheme == 'white') {
+      switch (props.text) {
+        case '1d4':
+          return <BlackD4 style={styles.icon} />;
+        case '1d6':
+          return <BlackD6 style={styles.icon} />;
+        case '1d8':
+          return <BlackD8 style={styles.icon} />;
+        case '1d10':
+          return <BlackD10 style={styles.icon} />;
+        case '1d12':
+          return <BlackD12 style={styles.icon} />;
+        case '1d20':
+          return <BlackD20 style={styles.icon} />;
+      
+        default:
+          return <BlackD10 style={styles.icon} />;
+      }
+    } else {
+      switch (props.text) {
+        case '1d4':
+          return <WhiteD4 style={styles.icon} />;
+        case '1d6':
+          return <WhiteD6 style={styles.icon} />;
+        case '1d8':
+          return <WhiteD8 style={styles.icon} />;
+        case '1d10':
+          return <WhiteD10 style={styles.icon} />;
+        case '1d12':
+          return <WhiteD12 style={styles.icon} />;
+        case '1d20':
+          return <WhiteD20 style={styles.icon} />;
+      
+        default:
+          return <WhiteD10 style={styles.icon} />;
+      }
     }
   }
   

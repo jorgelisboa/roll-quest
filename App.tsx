@@ -8,6 +8,7 @@ import { Audio } from "expo-av";
 import { useTheme } from 'react-native-paper';
 import * as Haptics from "expo-haptics";
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import ColorSwitch from "./src/components/ColorSwitch";
 
 export type Roll = {
   sides: number;
@@ -16,15 +17,17 @@ export type Roll = {
 
 export default function App() {
 
+  const [currentTheme, setCurrentTheme] = useState<string>('black')
+
   const theme = {
     ...DefaultTheme,
     roundness: 2,
     colors: {
       ...DefaultTheme.colors,
-      primary: "#fff",
-      secondary: "#000",
+      primary: currentTheme == "white" ? "#fff" : "#000",
+      secondary: currentTheme == "black" ? "#FFF" : "#000",
     },
-  };
+  }
 
   const { colors } = useTheme();
   const [rolls, setRolls] = useState<Roll>(null);
@@ -61,15 +64,16 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <View style={[styles.container, { backgroundColor: colors.primary }]}>
-        <DiceResult values={rolls} />
+        <DiceResult values={rolls} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+        <ColorSwitch currentTheme={currentTheme} setCurrentTheme={setCurrentTheme}/>
         <DiceArea>
-          <DiceButton text="1d4" action={() => roll(4)} />
-          <DiceButton text="1d6" action={() => roll(6)} />
-          <DiceButton text="1d8" action={() => roll(8)} />
-          <DiceButton text="1d10" action={() => roll(10)} />
-          <DiceButton text="1d12" action={() => roll(12)} />
-          <DiceButton text="1d20" action={() => roll(20)} />
-          <DiceButton text="1d100" action={() => roll(100)} />
+          <DiceButton text="1d4" action={() => roll(4)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <DiceButton text="1d6" action={() => roll(6)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <DiceButton text="1d8" action={() => roll(8)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <DiceButton text="1d10" action={() => roll(10)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <DiceButton text="1d12" action={() => roll(12)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <DiceButton text="1d20" action={() => roll(20)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <DiceButton text="1d100" action={() => roll(100)} currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
         </DiceArea>
         <StatusBar />
       </View>

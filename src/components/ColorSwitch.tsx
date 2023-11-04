@@ -2,7 +2,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useTheme } from 'react-native-paper';
 
-const ColorSwitch = () => {
+const ColorSwitch = ({currentTheme, setCurrentTheme}) => {
     const { colors } = useTheme();
 
     const changeColor = () => {
@@ -10,15 +10,22 @@ const ColorSwitch = () => {
         // When pressed, change the color of the button
         // to secondary color in useTheme
         // When pressed again, change the color of the button
+        console.log(currentTheme)
 
-        if (colors.primary === "#fff") {
-            colors.primary = "#000"
-        } else if (colors.primary === "#000") {
-            colors.primary = "#fff"
+        switch (currentTheme) {
+            case 'white':
+                setCurrentTheme('black')
+                break;
+            case 'black':
+                setCurrentTheme('white')
+                break;
+            
+            default:
+                break;
         }
     }
   return (
-    <TouchableOpacity style={[styles.colorButton, {backgroundColor: colors.primary}]} onPress={changeColor}>
+    <TouchableOpacity style={[styles.colorButton, {backgroundColor: colors.secondary}]} onPress={changeColor}>
     </TouchableOpacity>
   )
 }
@@ -33,6 +40,5 @@ const styles = StyleSheet.create({
         width: 32,
         height: 32,
         borderRadius: 50,
-        borderWidth: 2,
     }
 })

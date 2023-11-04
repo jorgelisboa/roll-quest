@@ -3,10 +3,11 @@ import { Text, useTheme } from "react-native-paper";
 import { Height, Width } from "../constants/sizes";
 import { Roll } from "../../App";
 import { useEffect, useState } from "react";
-import ColorSwitch from "./ColorSwitch";
 
 export interface Props {
   values: Roll;
+  currentTheme: string;
+  setCurrentTheme: any;
 }
 
 const DiceResult = (props: Props) => {
@@ -28,7 +29,6 @@ const DiceResult = (props: Props) => {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.primary }]}>
-      <ColorSwitch />
       <Animated.View style={{ opacity: fadeAnim }}>
         {props.values ? (
           <Text style={[styles.result, { color: colors.secondary }]}>{props.values.results}</Text>
