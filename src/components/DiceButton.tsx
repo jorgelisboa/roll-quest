@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Text } from "react-native-paper";
 import React from "react";
 import { Height } from "../constants/sizes";
@@ -25,7 +25,10 @@ export interface Props {
 const DiceButton = (props: Props) => {
   const DiceIcon = () => {
     // conditional render for dice icon based on props.text
-    if (props.currentTheme.name == "white") {
+    if (
+      props.currentTheme.name == "white" ||
+      props.currentTheme.name == "yellow"
+    ) {
       switch (props.text) {
         case "1d4":
           return <BlackD4 style={styles.icon} />;
@@ -70,6 +73,7 @@ const DiceButton = (props: Props) => {
       onPress={props.action}
     >
       <DiceIcon />
+
       <Text style={{ color: props.currentTheme.primary }} variant="bodySmall">
         {props.text}
       </Text>

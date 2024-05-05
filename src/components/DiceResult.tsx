@@ -12,11 +12,15 @@ export interface Props {
 
 const DiceResult = (props: Props) => {
   const [fadeAnim] = useState(new Animated.Value(0));
-  const [randomPhrase, setRandomPhrase] = useState<string>(prhases.splashPhrases[Math.floor(Math.random() * prhases.splashPhrases.length)])
+  const [randomPhrase, setRandomPhrase] = useState<string>(
+    prhases.splashPhrases[
+      Math.floor(Math.random() * prhases.splashPhrases.length)
+    ]
+  );
   useEffect(() => {
     startAnimation();
   }, [props.values]);
-  
+
   const startAnimation = () => {
     fadeAnim.setValue(0); // Redefine o valor inicial da animação para 0
     Animated.timing(fadeAnim, {
@@ -25,7 +29,6 @@ const DiceResult = (props: Props) => {
       useNativeDriver: false,
     }).start();
   };
-
 
   return (
     <View
@@ -44,7 +47,7 @@ const DiceResult = (props: Props) => {
             style={{ color: props.currentTheme.primary }}
             variant="displaySmall"
           >
-            { randomPhrase }
+            {randomPhrase}
           </Text>
         )}
         <Text

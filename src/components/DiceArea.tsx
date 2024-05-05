@@ -1,6 +1,5 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Height, Width } from "../constants/sizes";
-import { useTheme } from "react-native-paper";
 
 export interface Props {
   children: React.JSX.Element[];
@@ -8,9 +7,13 @@ export interface Props {
 }
 
 const DiceArea = (props: Props) => {
-
   return (
-    <View style={[styles.container, { backgroundColor: props.currentTheme.onPrimary }]}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: props.currentTheme.onPrimary },
+      ]}
+    >
       <ScrollView contentContainerStyle={styles.innerContainer}>
         {props.children}
       </ScrollView>
