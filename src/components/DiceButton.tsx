@@ -1,14 +1,8 @@
-import {
-  Image,
-  ImageProps,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Text, useTheme } from "react-native-paper";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Text } from "react-native-paper";
 import React from "react";
-import { Height, } from "../constants/sizes";
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { Height } from "../constants/sizes";
+// DICES ICONS
 import BlackD4 from "../../assets/dices_icons/black/d4.svg";
 import BlackD6 from "../../assets/dices_icons/black/d6.svg";
 import BlackD8 from "../../assets/dices_icons/black/d8.svg";
@@ -26,58 +20,59 @@ export interface Props {
   text: string;
   action: VoidFunction;
   currentTheme: any;
-  setCurrentTheme: any;
 }
 
 const DiceButton = (props: Props) => {
-
-  const { colors } = useTheme();
-
   const DiceIcon = () => {
     // conditional render for dice icon based on props.text
-    if (props.currentTheme == 'white') {
+    if (props.currentTheme.name == "white") {
       switch (props.text) {
-        case '1d4':
+        case "1d4":
           return <BlackD4 style={styles.icon} />;
-        case '1d6':
+        case "1d6":
           return <BlackD6 style={styles.icon} />;
-        case '1d8':
+        case "1d8":
           return <BlackD8 style={styles.icon} />;
-        case '1d10':
+        case "1d10":
           return <BlackD10 style={styles.icon} />;
-        case '1d12':
+        case "1d12":
           return <BlackD12 style={styles.icon} />;
-        case '1d20':
+        case "1d20":
           return <BlackD20 style={styles.icon} />;
-      
+
         default:
           return <BlackD10 style={styles.icon} />;
       }
     } else {
       switch (props.text) {
-        case '1d4':
+        case "1d4":
           return <WhiteD4 style={styles.icon} />;
-        case '1d6':
+        case "1d6":
           return <WhiteD6 style={styles.icon} />;
-        case '1d8':
+        case "1d8":
           return <WhiteD8 style={styles.icon} />;
-        case '1d10':
+        case "1d10":
           return <WhiteD10 style={styles.icon} />;
-        case '1d12':
+        case "1d12":
           return <WhiteD12 style={styles.icon} />;
-        case '1d20':
+        case "1d20":
           return <WhiteD20 style={styles.icon} />;
-      
+
         default:
           return <WhiteD10 style={styles.icon} />;
       }
     }
-  }
-  
+  };
+
   return (
-    <TouchableOpacity style={[styles.box, { borderColor: colors.secondary }]} onPress={props.action}>
+    <TouchableOpacity
+      style={[styles.box, { borderColor: props.currentTheme.primary }]}
+      onPress={props.action}
+    >
       <DiceIcon />
-      <Text style={{ color: colors.secondary }} variant="bodySmall">{props.text}</Text>
+      <Text style={{ color: props.currentTheme.primary }} variant="bodySmall">
+        {props.text}
+      </Text>
     </TouchableOpacity>
   );
 };

@@ -4,13 +4,13 @@ import { useTheme } from "react-native-paper";
 
 export interface Props {
   children: React.JSX.Element[];
+  currentTheme: any;
 }
 
 const DiceArea = (props: Props) => {
-  const { colors } = useTheme();
 
   return (
-    <View style={[styles.container, { backgroundColor:  colors.primary}]}>
+    <View style={[styles.container, { backgroundColor: props.currentTheme.onPrimary }]}>
       <ScrollView contentContainerStyle={styles.innerContainer}>
         {props.children}
       </ScrollView>
@@ -34,5 +34,5 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
 });

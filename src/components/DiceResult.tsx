@@ -6,8 +6,7 @@ import { useEffect, useState } from "react";
 
 export interface Props {
   values: Roll;
-  currentTheme: string;
-  setCurrentTheme: any;
+  currentTheme: any;
 }
 
 const DiceResult = (props: Props) => {
@@ -25,20 +24,34 @@ const DiceResult = (props: Props) => {
       useNativeDriver: false,
     }).start();
   };
-  const { colors } = useTheme();
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.primary }]}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: props.currentTheme.onPrimary },
+      ]}
+    >
       <Animated.View style={{ opacity: fadeAnim }}>
         {props.values ? (
-          <Text style={[styles.result, { color: colors.secondary }]}>{props.values.results}</Text>
+          <Text style={[styles.result, { color: props.currentTheme.primary }]}>
+            {props.values.results}
+          </Text>
         ) : (
-          <Text style={{ color: colors.secondary }} variant="displayMedium">Role um dado</Text>
+          <Text
+            style={{ color: props.currentTheme.primary }}
+            variant="displayMedium"
+          >
+            Role um dado
+          </Text>
         )}
+        <Text
+          style={{ color: props.currentTheme.primary }}
+          variant="displaySmall"
+        >
+          {props.values ? "1d" + props.values.sides : ""}
+        </Text>
       </Animated.View>
-      <Text style={{ color: colors.secondary }} variant="displaySmall">
-        {props.values ? "1d" + props.values.sides : ""}
-      </Text>
     </View>
   );
 };
@@ -49,7 +62,6 @@ const styles = StyleSheet.create({
   container: {
     height: Height * 0.7,
     width: Width,
-    borderBottomWidth: 1,
     // Align on midlle
     flex: 1,
     alignItems: "center",

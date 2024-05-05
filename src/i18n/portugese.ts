@@ -11,5 +11,5 @@ export default {
     "Bem-vindo ao reino da fantasia...",
     "O destino está em suas mãos...",
   ],
-  startPhrase: 'Role um dado',
+  startPhrase: "Role um dado",
 };
