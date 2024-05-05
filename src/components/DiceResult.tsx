@@ -3,6 +3,7 @@ import { Text, useTheme } from "react-native-paper";
 import { Height, Width } from "../constants/sizes";
 import { Roll } from "../../App";
 import { useEffect, useState } from "react";
+import prhases from "../i18n/portugese";
 
 export interface Props {
   values: Roll;
@@ -11,11 +12,11 @@ export interface Props {
 
 const DiceResult = (props: Props) => {
   const [fadeAnim] = useState(new Animated.Value(0));
-
+  const [randomPhrase, setRandomPhrase] = useState<string>(prhases.splashPhrases[Math.floor(Math.random() * prhases.splashPhrases.length)])
   useEffect(() => {
     startAnimation();
   }, [props.values]);
-
+  
   const startAnimation = () => {
     fadeAnim.setValue(0); // Redefine o valor inicial da animação para 0
     Animated.timing(fadeAnim, {
@@ -24,6 +25,7 @@ const DiceResult = (props: Props) => {
       useNativeDriver: false,
     }).start();
   };
+
 
   return (
     <View
@@ -40,9 +42,9 @@ const DiceResult = (props: Props) => {
         ) : (
           <Text
             style={{ color: props.currentTheme.primary }}
-            variant="displayMedium"
+            variant="displaySmall"
           >
-            Role um dado
+            { randomPhrase }
           </Text>
         )}
         <Text
@@ -62,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     height: Height * 0.7,
     width: Width,
+    paddingHorizontal: Width * 0.1,
     // Align on midlle
     flex: 1,
     alignItems: "center",

@@ -10,7 +10,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 import ColorSwitch from "./src/components/ColorSwitch";
 
 // THEMES
-import WhiteTheme from "./src/constants/themes/white";
+import DarkTheme from "./src/constants/themes/dark";
 
 export type Roll = {
   sides: number;
@@ -18,7 +18,7 @@ export type Roll = {
 };
 
 export default function App() {
-  const [currentTheme, setCurrentTheme] = useState<any>(WhiteTheme);
+  const [currentTheme, setCurrentTheme] = useState<any>(DarkTheme);
 
   const [rolls, setRolls] = useState<Roll>(null);
   const [times, setTImes] = useState<number>(1);
