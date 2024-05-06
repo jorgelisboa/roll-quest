@@ -5,7 +5,6 @@ import DarkTheme from "../constants/themes/dark";
 import GreenTheme from "../constants/themes/green";
 import BlueTheme from "../constants/themes/blue";
 import RedTheme from "../constants/themes/red";
-import YellowTheme from "../constants/themes/yellow";
 
 const ColorSwitch = ({ currentTheme, setCurrentTheme }) => {
   const [themes, setThemes] = useState([
