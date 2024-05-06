@@ -1,9 +1,13 @@
 import { StyleSheet, View, Animated } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 import { Height, Width } from "../constants/sizes";
-import { Roll } from "../../App";
 import { useEffect, useState } from "react";
 import prhases from "../i18n/portugese";
+
+export type Roll = {
+  sides: number;
+  results: number;
+};
 
 export interface Props {
   values: Roll;
