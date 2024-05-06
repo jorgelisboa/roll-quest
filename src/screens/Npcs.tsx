@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 import { useState } from "react";
 import {
   RandomCharacter,
@@ -19,6 +19,9 @@ export default function Npcs(props: Props) {
       <Text>{npcInfo.raça}</Text>
       <Text>{npcInfo.classe}</Text>
       <Text>{npcInfo.origem}</Text>
+      <Button onPress={() => setNpcInfo(gerarPersonagem())}>
+        Gerar Personagem
+      </Button>
     </View>
   );
 }
