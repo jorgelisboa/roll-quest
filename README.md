@@ -16,3 +16,8 @@ With that in mind, using dice on your phone (for free) is the best option for RP
 - You can only roll one dice at a time;
 - WHITE (so much) and black (hardcoded) themes;
 - Dice without icons (1d4, 1d6, 1d8, 1d10, 1d12, 1d20, 1d100)
+
+### V2.0.0
+- Theme switching between blue, red, green, white and black;
+- Random medieval character generator;
+- Performance improve in theme switching;
